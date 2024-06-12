@@ -55,7 +55,10 @@ class Message extends StatelessWidget {
     required this.usePreviewData,
     this.userAgent,
     this.videoMessageBuilder,
+    this.alignmentDirectional,
   });
+
+  final AlignmentDirectional? alignmentDirectional;
 
   /// Build an audio message inside predefined bubble.
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -354,9 +357,10 @@ class Message extends StatelessWidget {
 
     return Container(
       alignment: bubbleRtlAlignment == BubbleRtlAlignment.left
-          ? currentUserIsAuthor
-              ? AlignmentDirectional.centerEnd
-              : AlignmentDirectional.centerStart
+          ? alignmentDirectional ??
+              (currentUserIsAuthor
+                  ? AlignmentDirectional.centerEnd
+                  : AlignmentDirectional.centerStart)
           : currentUserIsAuthor
               ? Alignment.centerRight
               : Alignment.centerLeft,
