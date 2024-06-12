@@ -55,7 +55,7 @@ class Message extends StatelessWidget {
     required this.usePreviewData,
     this.userAgent,
     this.videoMessageBuilder,
-    this.alignmentDirectional,
+      required  this.alignmentDirectional,
   });
 
   final AlignmentDirectional? alignmentDirectional;

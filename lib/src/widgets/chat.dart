@@ -103,7 +103,10 @@ class Chat extends StatefulWidget {
     this.slidableMessageBuilder,
     this.isLeftStatus = false,
     this.messageWidthRatio = 0.72,
+    this.alignmentDirectional,
   });
+
+  final AlignmentDirectional? alignmentDirectional;
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -521,6 +524,7 @@ class ChatState extends State<Chat> {
           usePreviewData: widget.usePreviewData,
           userAgent: widget.userAgent,
           videoMessageBuilder: widget.videoMessageBuilder,
+          alignmentDirectional: widget.alignmentDirectional,
         );
         messageWidget = widget.slidableMessageBuilder == null
             ? msgWidget
